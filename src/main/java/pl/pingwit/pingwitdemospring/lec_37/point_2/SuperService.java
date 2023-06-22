@@ -20,7 +20,6 @@ public class SuperService {
         this.applicationContext = applicationContext;
     }
 
-    @PostConstruct
     public void init(){
         ProductRepository productRepository = applicationContext.getBean("productRepository", ProductRepository.class);
 
