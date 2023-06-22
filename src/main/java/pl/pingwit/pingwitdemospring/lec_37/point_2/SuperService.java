@@ -9,7 +9,7 @@ import pl.pingwit.pingwitdemospring.lec_37.point_2.repository.ProductRepository;
  * @author Pavel Radkevich
  * @since 12.06.23
  */
-@Component
+
 public class SuperService {
 
     private final PingwitShopService pingwitShopService;

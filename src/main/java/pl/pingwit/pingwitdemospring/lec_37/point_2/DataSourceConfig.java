@@ -10,7 +10,7 @@ import javax.sql.DataSource;
  * @author Pavel Radkevich
  * @since 12.06.23
  */
-@Configuration
+
 public class DataSourceConfig {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/pingwit_shop";

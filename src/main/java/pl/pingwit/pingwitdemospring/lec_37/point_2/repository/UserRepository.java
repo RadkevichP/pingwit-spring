@@ -15,7 +15,7 @@ import java.util.List;
  * @author Pavel Radkevich
  * @since 12.06.23
  */
-@Component
+
 public class UserRepository {
 
     private final DataSource dataSource;
