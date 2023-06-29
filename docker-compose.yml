@@ -8,7 +8,7 @@ services:
       - pingwit_net
     environment:
       POSTGRES_USER: pingwit
-      POSTGRES_PASSWORD: d
+      POSTGRES_PASSWORD: pingwit_password
     volumes:
       - "vol_postgres:/var/lib/postgresql/data"
     ports:

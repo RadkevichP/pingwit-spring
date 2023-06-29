@@ -1,4 +1,4 @@
-package pl.pingwit.pingwitdemospring.lec_37;
+package pl.pingwit.pingwitdemospring.repository.model;
 
 /**
  * @author Pavel Radkevich

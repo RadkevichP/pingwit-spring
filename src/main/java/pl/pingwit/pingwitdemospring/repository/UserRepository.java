@@ -1,12 +1,11 @@
-package pl.pingwit.pingwitdemospring.lec_38;
+package pl.pingwit.pingwitdemospring.repository;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
-import pl.pingwit.pingwitdemospring.lec_37.User;
+import pl.pingwit.pingwitdemospring.repository.model.User;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,4 +37,8 @@ public class UserRepository {
         users.remove(userId);
     }
 
+    public Integer createUser(User userToCreate) {
+        users.put(userToCreate.id(), userToCreate);
+        return userToCreate.id();
+    }
 }

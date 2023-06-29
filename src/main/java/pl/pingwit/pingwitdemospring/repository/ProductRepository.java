@@ -1,7 +1,6 @@
-package pl.pingwit.pingwitdemospring.lec_37.point_2.repository;
+package pl.pingwit.pingwitdemospring.repository;
 
-import org.springframework.stereotype.Component;
-import pl.pingwit.pingwitdemospring.lec_37.Product;
+import pl.pingwit.pingwitdemospring.repository.model.Product;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

@@ -1,7 +1,8 @@
-package pl.pingwit.pingwitdemospring.lec_38;
+package pl.pingwit.pingwitdemospring.controller;
 
 import org.springframework.web.bind.annotation.*;
-import pl.pingwit.pingwitdemospring.lec_37.User;
+import pl.pingwit.pingwitdemospring.repository.model.User;
+import pl.pingwit.pingwitdemospring.repository.UserRepository;
 
 import java.util.Collection;
 
@@ -27,6 +28,11 @@ public class UserController {
     @GetMapping
     public Collection<User> getAll(){
         return userRepository.getAll();
+    }
+
+    @PostMapping
+    public Integer createUser(User userToCreate) {
+        return userRepository.createUser(userToCreate);
     }
 
     @DeleteMapping("/{id}")

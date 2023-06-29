@@ -1,4 +1,4 @@
-package pl.pingwit.pingwitdemospring.lec_38;
+package pl.pingwit.pingwitdemospring.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
