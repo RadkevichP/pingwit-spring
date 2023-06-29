@@ -1,8 +1,9 @@
 package pl.pingwit.pingwitdemospring.controller;
 
 import org.springframework.web.bind.annotation.*;
-import pl.pingwit.pingwitdemospring.repository.model.User;
 import pl.pingwit.pingwitdemospring.repository.UserRepository;
+import pl.pingwit.pingwitdemospring.repository.model.User;
+import pl.pingwit.pingwitdemospring.repository.InMemoryUserRepository;
 
 import java.util.Collection;
 
