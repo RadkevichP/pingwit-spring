@@ -2,6 +2,8 @@ package pl.pingwit.pingwitdemospring.controller;
 
 import org.springframework.web.bind.annotation.*;
 import pl.pingwit.pingwitdemospring.controller.dto.UserDTO;
+import pl.pingwit.pingwitdemospring.controller.dto.UserFilterDTO;
+import pl.pingwit.pingwitdemospring.repository.model.User;
 import pl.pingwit.pingwitdemospring.service.UserService;
 
 import java.util.List;
@@ -45,6 +47,16 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         userService.deleteById(id);
+    }
+
+    @PutMapping("/{id}")
+    public UserDTO update(@PathVariable Integer id, @RequestBody UserDTO userToUpdate) {
+        return userService.updateUser(id, userToUpdate);
+    }
+
+    @PostMapping("/search")
+    public List<UserDTO>  search(@RequestBody UserFilterDTO filter) {
+        return userService.search(filter);
     }
 
 }

@@ -1,0 +1,4 @@
+Hibernate
+ORM - Object-to-Relational Mapping framework
+
+JPA Java Persistence API

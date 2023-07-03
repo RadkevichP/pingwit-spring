@@ -1,6 +1,7 @@
 package pl.pingwit.pingwitdemospring.service;
 
 import pl.pingwit.pingwitdemospring.controller.dto.UserDTO;
+import pl.pingwit.pingwitdemospring.controller.dto.UserFilterDTO;
 
 import java.util.List;
 
@@ -19,4 +20,8 @@ public interface UserService {
     void deleteById(Integer id);
 
     List<UserDTO> searchByName(String name);
+
+    UserDTO updateUser(Integer id, UserDTO userToUpdate);
+
+    List<UserDTO> search(UserFilterDTO filter);
 }

@@ -35,11 +35,11 @@ public class UserConverter {
 
     private UserDTO convertUserToDto(User source) {
         UserDTO result = new UserDTO();
-        result.setId(source.id());
-        result.setName(source.name());
-        result.setSurname(source.surname());
-        result.setEmail(source.email());
-        result.setPhone(source.phone());
+        result.setId(source.getId());
+        result.setName(source.getName());
+        result.setSurname(source.getSurname());
+        result.setEmail(source.getEmail());
+        result.setPhone(source.getPhone());
         return result;
     }
 
