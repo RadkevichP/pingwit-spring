@@ -1,6 +1,6 @@
 package pl.pingwit.pingwitdemospring.controller.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -9,14 +9,20 @@ import java.util.Objects;
  * @author Pavel Radkevich
  * @since 29.06.23
  */
-// Data Transfer Object
 public class UserDTO implements Serializable {
 
     private Integer id;
-    //@JsonProperty("userName")
+
+    @NotBlank
     private String name;
+
+    @NotBlank
     private String surname;
+
+    @Email
     private String email;
+
+    @Digits(integer = 20, fraction = 0)
     private String phone;
 
     public Integer getId() {

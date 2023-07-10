@@ -1,4 +1,4 @@
-package pl.pingwit.pingwitdemospring.validator;
+package pl.pingwit.pingwitdemospring.exception;
 
 /**
  * @author Pavel Radkevich

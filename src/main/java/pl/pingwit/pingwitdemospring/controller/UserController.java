@@ -1,5 +1,8 @@
 package pl.pingwit.pingwitdemospring.controller;
 
+import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import pl.pingwit.pingwitdemospring.controller.dto.UserDTO;
 import pl.pingwit.pingwitdemospring.controller.dto.UserFilterDTO;
@@ -40,7 +43,7 @@ public class UserController {
     }
 
     @PostMapping
-    public Integer createUser(@RequestBody UserDTO userToCreate) {
+    public Integer createUser(@RequestBody @Valid UserDTO userToCreate) {
         return userService.createUser(userToCreate);
     }
 
@@ -50,13 +53,18 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public UserDTO update(@PathVariable Integer id, @RequestBody UserDTO userToUpdate) {
+    public UserDTO update(@PathVariable Integer id, @RequestBody @Valid UserDTO userToUpdate) {
         return userService.updateUser(id, userToUpdate);
     }
 
     @PostMapping("/search")
     public List<UserDTO>  search(@RequestBody UserFilterDTO filter) {
         return userService.search(filter);
+    }
+
+    @GetMapping("/page")
+    public Page<UserDTO> getPaged(Pageable pageable) {
+        return userService.getPage(pageable);
     }
 
 }

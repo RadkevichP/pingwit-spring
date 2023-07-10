@@ -1,5 +1,7 @@
 package pl.pingwit.pingwitdemospring.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import pl.pingwit.pingwitdemospring.controller.dto.UserDTO;
 import pl.pingwit.pingwitdemospring.controller.dto.UserFilterDTO;
 
@@ -24,4 +26,6 @@ public interface UserService {
     UserDTO updateUser(Integer id, UserDTO userToUpdate);
 
     List<UserDTO> search(UserFilterDTO filter);
+
+    Page<UserDTO> getPage(Pageable pageable);
 }
