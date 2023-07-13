@@ -1,15 +1,17 @@
 package pl.pingwit.pingwitdemospring.controller;
 
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import pl.pingwit.pingwitdemospring.controller.dto.UserDTO;
 import pl.pingwit.pingwitdemospring.controller.dto.UserFilterDTO;
-import pl.pingwit.pingwitdemospring.repository.model.User;
 import pl.pingwit.pingwitdemospring.service.UserService;
 
 import java.util.List;
+
 
 /**
  * @author Pavel Radkevich
@@ -20,6 +22,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
     private final UserService userService;
 
@@ -39,6 +43,7 @@ public class UserController {
 
     @GetMapping
     public List<UserDTO> getAll() {
+        LOGGER.debug("пришел запрос на получение всех юзеров!");
         return userService.getAllUsers();
     }
 
