@@ -1,6 +1,12 @@
 package pl.pingwit.pingwitdemospring.converter;
 
+import org.apache.commons.lang3.RandomStringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
 import pl.pingwit.pingwitdemospring.controller.dto.UserDTO;
 import pl.pingwit.pingwitdemospring.repository.model.User;
 
@@ -13,7 +19,19 @@ import java.util.stream.Collectors;
  * @since 29.06.23
  */
 @Component
+//@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
+//@Scope("prototype")
 public class UserConverter {
+
+    private static final Logger log = LoggerFactory.getLogger(UserConverter.class);
+
+    private final String name;
+
+    public UserConverter() {
+        this.name = RandomStringUtils.randomAlphabetic(4);
+        log.info(String.format("created object of type UserConverter with name: %s", name));
+    }
 
     public User convertToEntity(UserDTO source) {
         return new User(source.getId(),
