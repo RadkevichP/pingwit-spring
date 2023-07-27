@@ -1,5 +1,6 @@
 package pl.pingwit.pingwitdemospring.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
  * @author Pavel Radkevich
  * @since 13.07.23
  */
+@Tag(name = "Order management API", description = "API for CRUD operations with orders")
 @RestController
 @RequestMapping("/orders")
 public class OrderController {

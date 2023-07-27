@@ -1,5 +1,7 @@
 package pl.pingwit.pingwitdemospring.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +19,7 @@ import java.util.List;
  * @author Pavel Radkevich
  * @since 22.06.23
  */
-// SOLID
-// CRUD
+@Tag(name = "User management API", description = "API for CRUD operations with users")
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -31,6 +32,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    @Operation(description = "Get user by user id. If user not found 404 status code is returned")
     @GetMapping("/{id}")
     public UserDTO getById(@PathVariable Integer id) {
         return userService.getById(id);
@@ -47,6 +49,7 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @Operation(description = "Create a new user. Only user with admin rights can use it")
     @PostMapping
     public Integer createUser(@RequestBody @Valid UserDTO userToCreate) {
         return userService.createUser(userToCreate);
@@ -63,7 +66,7 @@ public class UserController {
     }
 
     @PostMapping("/search")
-    public List<UserDTO>  search(@RequestBody UserFilterDTO filter) {
+    public List<UserDTO> search(@RequestBody UserFilterDTO filter) {
         return userService.search(filter);
     }
 
