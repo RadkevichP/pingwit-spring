@@ -13,16 +13,12 @@ public class UserDTO implements Serializable {
 
     private Integer id;
 
-    @NotBlank
     private String name;
 
-    @NotBlank
     private String surname;
 
-    @Email
     private String email;
 
-    @Digits(integer = 20, fraction = 0)
     private String phone;
 
     public Integer getId() {

@@ -2,7 +2,6 @@ package pl.pingwit.pingwitdemospring.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -51,7 +50,7 @@ public class UserController {
 
     @Operation(description = "Create a new user. Only user with admin rights can use it")
     @PostMapping
-    public Integer createUser(@RequestBody @Valid UserDTO userToCreate) {
+    public Integer createUser(@RequestBody UserDTO userToCreate) {
         return userService.createUser(userToCreate);
     }
 
@@ -61,7 +60,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public UserDTO update(@PathVariable Integer id, @RequestBody @Valid UserDTO userToUpdate) {
+    public UserDTO update(@PathVariable Integer id, @RequestBody UserDTO userToUpdate) {
         return userService.updateUser(id, userToUpdate);
     }
 

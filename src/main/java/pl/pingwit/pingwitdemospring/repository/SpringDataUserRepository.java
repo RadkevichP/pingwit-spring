@@ -16,4 +16,6 @@ public interface SpringDataUserRepository extends JpaRepository<User, Integer> {
     List<User> findAllByNameOrderBySurname(String name);
 
     List<User> findAllByNameAndSurname(String name, String surname);
+
+    List<User> findAllByEmail(String email);
 }
