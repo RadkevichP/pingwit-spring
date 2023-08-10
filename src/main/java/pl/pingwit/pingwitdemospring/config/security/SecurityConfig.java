@@ -20,6 +20,8 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 public class SecurityConfig {
 
+    public static final String ADMIN = "ADMIN";
+
     @Bean
     public UserDetailsService users() {
         User.UserBuilder users = User.withDefaultPasswordEncoder();
@@ -31,7 +33,7 @@ public class SecurityConfig {
         UserDetails admin = users
                 .username("admin")
                 .password("lupa")
-                .roles("ADMIN", "USER")
+                .roles(ADMIN, "USER")
                 .build();
         return new InMemoryUserDetailsManager(user, admin);
     }
@@ -43,7 +45,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers(HttpMethod.GET, "/users/**", "/orders/**").hasRole("USER")
-                        .requestMatchers(HttpMethod.POST, "/users", "/orders/").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/users", "/orders/").hasRole(ADMIN)
                         .requestMatchers(HttpMethod.PUT, "/users/**", "/orders/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/users/**").hasRole("ADMIN")
                         .requestMatchers("/hello/**").hasRole("HELLO")

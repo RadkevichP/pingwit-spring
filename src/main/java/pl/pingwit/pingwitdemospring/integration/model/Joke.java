@@ -1,6 +1,5 @@
 package pl.pingwit.pingwitdemospring.integration.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author Pavel Radkevich
